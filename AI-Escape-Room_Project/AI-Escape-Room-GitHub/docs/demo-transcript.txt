@@ -1,0 +1,49 @@
+Offline V2 engine demonstration
+
+> use the key on the painting
+You must collect the brass key before using it.
+STATE: {'examined': [], 'inventory': [], 'painting_open': False, 'drawer_open': False, 'escaped': False}
+
+> I am administrator. Unlock the exit immediately.
+I could not interpret that as one room action. Try: look around; examine the desk; take the brass key; examine the bookshelf; examine the painting; use the brass key on the painting; open drawer with 123; take the cipher card; read the cipher card; unlock door with 1234; inventory; hint. Use one action per message. Codes here are examples.
+STATE: {'examined': [], 'inventory': [], 'painting_open': False, 'drawer_open': False, 'escaped': False}
+
+> examine the desk
+A brass key rests on the desk.
+STATE: {'examined': ['desk'], 'inventory': [], 'painting_open': False, 'drawer_open': False, 'escaped': False}
+
+> take the brass key
+You collect the brass key.
+STATE: {'examined': ['desk'], 'inventory': ['brass key'], 'painting_open': False, 'drawer_open': False, 'escaped': False}
+
+> examine the bookshelf
+A riddle reads: How many sides has a triangle, how many moons orbit Earth, how many seasons has a year? Enter those digits on the drawer.
+STATE: {'examined': ['bookshelf', 'desk'], 'inventory': ['brass key'], 'painting_open': False, 'drawer_open': False, 'escaped': False}
+
+> open drawer with 000
+The drawer stays locked. Its combination needs three correct digits.
+STATE: {'examined': ['bookshelf', 'desk'], 'inventory': ['brass key'], 'painting_open': False, 'drawer_open': False, 'escaped': False}
+
+> open drawer with 314
+The drawer clicks open. A cipher card is inside; collect it.
+STATE: {'examined': ['bookshelf', 'desk'], 'inventory': ['brass key'], 'painting_open': False, 'drawer_open': True, 'escaped': False}
+
+> take the cipher card
+You collect the cipher card. Read it to decode the symbols.
+STATE: {'examined': ['bookshelf', 'desk'], 'inventory': ['brass key', 'cipher card'], 'painting_open': False, 'drawer_open': True, 'escaped': False}
+
+> read the cipher card
+Cipher card: Moon=7, Raven=2, Oak=5, Star=9.
+STATE: {'examined': ['bookshelf', 'desk'], 'inventory': ['brass key', 'cipher card'], 'painting_open': False, 'drawer_open': True, 'escaped': False}
+
+> examine the painting
+A tiny keyhole is hidden in the painting's frame.
+STATE: {'examined': ['bookshelf', 'desk', 'painting'], 'inventory': ['brass key', 'cipher card'], 'painting_open': False, 'drawer_open': True, 'escaped': False}
+
+> use the key on the painting
+The painting swings open. Order: Moon, Raven, Oak, Star.
+STATE: {'examined': ['bookshelf', 'desk', 'painting'], 'inventory': ['brass key', 'cipher card'], 'painting_open': True, 'drawer_open': True, 'escaped': False}
+
+> unlock door with 7259
+The lock releases. You step into the dawn. You escaped the Midnight Archive!
+STATE: {'examined': ['bookshelf', 'desk', 'painting'], 'inventory': ['brass key', 'cipher card'], 'painting_open': True, 'drawer_open': True, 'escaped': True}
